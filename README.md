@@ -45,6 +45,49 @@ JOIN providers pr ON p.id_providers = pr.id
 WHERE pr.name = 'Ajax SA';
 ```
 
+## Nível 2
+
+### 2604 - Menores que 10 ou Maiores que 100
+<img width="595" height="256" alt="image (8)" src="https://github.com/user-attachments/assets/6b20a4a5-bb47-43e7-a51f-87b0744ab9d7" />
+
+``` sql
+SELECT id, name
+FROM products
+WHERE price < 10 OR price > 100;
+````
+
+### 2613 - Filmes em Promoção
+<img width="451" height="269" alt="image (9)" src="https://github.com/user-attachments/assets/cc8d00e3-fd5e-4366-a74e-0d188d8674b1" />
+
+```sql
+SELECT m.id, m.name
+FROM movies m
+JOIN prices p ON m.id_prices = p.id
+WHERE p.value < 2.00;
+```
+
+## Nível 3
+### 2618 - Produtos Importados
+<img width="465" height="268" alt="image (10)" src="https://github.com/user-attachments/assets/607b3355-ead0-4cdb-bc5d-341ccc18016f" />
+
+``` sql
+SELECT p.name AS name, pr.name AS name, c.name AS name
+FROM products p
+JOIN providers pr ON p.id_providers = pr.id
+JOIN categories c ON p.id_categories = c.id
+WHERE pr.name = 'Sansul SA'
+AND c.name ='Imported'
+```
+### 2606 - Categorias
+<img width="205" height="130" alt="Capturar" src="https://github.com/user-attachments/assets/c7b683c1-90ed-43e6-a49f-8c7b98e668c6" />
+
+``` sql
+SELECT p.id, p.name
+FROM products p
+JOIN categories c ON p.id_categories = c.id
+WHERE c.name LIKE 'super%';
+``` 
+
 ## Nível 4
 ### 2602 - Select Básico
 
